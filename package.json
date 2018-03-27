@@ -1,0 +1,17 @@
+{
+  "name": "workshopserver",
+  "version": "1.0.0",
+  "description": "a server for workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stefan Sathianathen",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "nodemon": "^1.17.2"
+  }
+}
