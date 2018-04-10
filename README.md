@@ -1,4 +1,4 @@
-# info30005-2018-Project
+# Info30005-2018-Project
 # Team TBD
 # Reimagining death
 # Writing front end
