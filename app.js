@@ -5,11 +5,11 @@ var app = express();
 
 //app.set('view engine', 'html');
 //app.use( express.static( "public" ) );
-app.use(express.static(path.join(__dirname+'/mypages')));
+app.use(express.static(path.join(__dirname+'/site')));
 
 
 app.get('/*', function (req, res) {
-    res.sendFile('landing.html', {root: path.join(__dirname+'/mypages')});
+    res.sendFile('landing.html', {root: path.join(__dirname+'/site')});
 });
 
 //app.use('/', router);
