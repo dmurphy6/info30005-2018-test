@@ -7,21 +7,18 @@ body{
     display:grid;
     grid-template-columns: 3fr 5fr 5fr 2fr;
     grid-template-rows: 3fr 5fr 5fr;
-    background-color:#F8FCFF
 }
 
 .wrapper2{
     display:grid;
     grid-template-columns: 4fr 4fr 4fr 1fr;
     grid-template-rows: 1fr 1fr;
-    background-color:#F8FCFF
 }
 
 .wrapper3{
     display:grid;
     grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 0.5fr 0.75fr 0.5fr;
-    background-color:#F8FCFF
+    grid-template-rows: 1fr auto;
 }
 
 .profile {
@@ -31,7 +28,6 @@ body{
   border: 1px solid #D5D5D5;
   padding-bottom: 5px;
   margin-bottom: 20px;
-    background-color:#F8FCFF
 
 }
 
@@ -42,7 +38,6 @@ body{
   overflow: hidden;
   text-align: center;
   border: 5px solid #FFF;
-      background-color:#F8FCFF
 }
 
 .profile .user {
@@ -144,10 +139,9 @@ body{
     overflow: auto;
 }
 
-.saveBtn {
-  grid-row: 3/4;
-  grid-column: 3/4;
-  }
+.saveBtn{
+  text-align: right;
+}
 
 @media (max-width: 768px) {
   .btn-responsive {
