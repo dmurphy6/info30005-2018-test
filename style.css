@@ -93,6 +93,17 @@ body{
     height: 75px;
 }
 
+.inviteContributer{
+    grid-column:2/3;
+    grid-row:1/2;
+    text-align:center;
+}
+
+.inviteContributer img{
+    width: 75px;
+    height: 75px;
+}
+
 
 .img-profile{
     height:200px;
