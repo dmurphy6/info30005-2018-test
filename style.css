@@ -20,7 +20,7 @@ body{
 .wrapper3{
     display:grid;
     grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 0.5fr, 0.75fr, 0.5fr;
+    grid-template-rows: 0.5fr 0.75fr 0.5fr;
     background-color:#F8FCFF
 }
 
