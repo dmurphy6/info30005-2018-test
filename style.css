@@ -1,0 +1,177 @@
+body{
+  margin-top:30px;
+
+}
+
+.wrapper{
+    display:grid;
+    grid-template-columns: 3fr 5fr 5fr 2fr;
+    grid-template-rows: 3fr 5fr 5fr;
+}
+
+.wrapper2{
+    display:grid;
+    grid-template-columns: 4fr 4fr 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.wrapper3{
+    display:grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr auto;
+}
+
+.profile {
+  width: 100%;
+  position: relative;
+  background: #FFF;
+  border: 1px solid #D5D5D5;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+
+}
+
+.profile .image {
+  display: block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  border: 5px solid #FFF;
+}
+
+.profile .user {
+  position: relative;
+  padding: 0px 5px 5px;
+}
+
+.profile .user .avatar {
+  position: absolute;
+  left: 20px;
+  top: -150px;
+  z-index: 2;
+}
+
+.profile .user h2 {
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
+  float: left;
+  margin: 4px 0px 0px 135px;
+  font-weight: bold;
+}
+
+.info {
+  grid-column: 2/3;
+  grid-row:2/3;
+  font-size:1.5em;
+  padding-left:35%;
+  
+}
+
+.photoAlbum {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    text-align: center;
+
+}
+
+.photoAlbum > img {
+    width: 75px;
+    height: 75px;
+}
+
+.tqCard{
+  grid-column:3/4;
+  grid-row:1/2;
+  text-align:center;
+}
+
+.tqCard img{
+   filter: grayscale(100%);
+    width: 75px;
+    height: 75px;
+}
+
+.inviteContributer{
+    grid-column:2/3;
+    grid-row:1/2;
+    text-align:center;
+}
+
+.inviteContributer img{
+    width: 75px;
+    height: 75px;
+}
+
+
+.img-profile{
+    height:200px;
+    width:200px;
+}
+
+.img-cover{
+    width:1000px;
+    height:300px;
+}
+
+.name{
+    grid-column:1/2;
+    grid-row:1/2;
+    text-align: left;
+    padding-left:15%;
+}
+
+.anchor{
+  font-size:1.5em;
+  color: black;
+}
+
+.lHeader{
+    margin-top:10% ;
+    grid-row:1/2;
+    grid-column:2/3;
+    text-align: center;
+
+}
+
+.lText{
+    grid-row:2/3;
+    grid-column:2/3;
+    text-align: center;
+}
+.lQuestion{
+    grid-row:2/3;
+    grid-column:2/3;
+    text-align: left;
+}
+
+#legacyText {
+    width: 80%;
+    height: 70%;
+    font-size: 1.5em;
+    border-radius: 4px;
+    resize: none;
+    overflow: auto;
+}
+
+.saveBtn{
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .btn-responsive {
+    padding:2px 4px;
+    font-size:80%;
+    line-height: 1;
+    border-radius:3px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    padding:4px 9px;
+    font-size:90%;
+    line-height: 1.2;
+  }
+}
