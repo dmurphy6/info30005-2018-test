@@ -32,7 +32,25 @@ module.exports.createUser =function (req, res) {
 }
 
 module.exports.login = function (req, res) {
-
-
+	var query = { username: req.body.Username, password: req.body.Password };
+	User.find(query,function(err,user){
+		if(!err){
+			console.log(user);
+			if(user.length > 0){
+				for (var i = 0; i < user.length; i++){
+					if(user[i]['username'].equals(req.body.Username) && user[i]['password'].equals(req.body.Password)){
+						res.render("profilePage.ejs");
+					}//create cases
+				}
+				res.redirect('/login'); //need to figure out how to do alerts
+			}
+			else{
+				res.redirect('/login'); //need to figure out how to do alerts
+			}
+		}
+		else{
+			res.status(500);
+		}
+	});
 	
 }
