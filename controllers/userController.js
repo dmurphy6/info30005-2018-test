@@ -1,5 +1,13 @@
 var User = require('../models/user');
 
+
+//template for new logic
+// module.exports.functionName = function (req, res) {
+// 	// body...
+// }
+
+
+//need to add acutal logic
 module.exports.createUser =function (req, res) {
 	//using scheme
 	var newUser = User({
@@ -14,6 +22,7 @@ module.exports.createUser =function (req, res) {
 			res.render('login.ejs');
 		}
 		else{
+			//Need to figure out how to do alerts
 			console.log("Failed");
 			res.redirect('/signup');
 		}
@@ -22,6 +31,8 @@ module.exports.createUser =function (req, res) {
 	
 }
 
-module.exports.loadAllUsers = function(argument) {
-	// body...
+module.exports.login = function (req, res) {
+
+
+	
 }

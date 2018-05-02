@@ -58,11 +58,7 @@ router.get('/writeLegacy', function (req, res) {
 })
 
 router.post('/login', userController.createUser);
-
-// router.post('/login', urlencodedParser,function (req, res) {
-// 	console.log(req.body.Username);
-// 	 res.send('POST request to the homepage');
-// })
+router.post('/profilePage', userController.login);
 
 module.exports = router;
 
