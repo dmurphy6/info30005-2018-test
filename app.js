@@ -2,6 +2,11 @@ var express = require('express');
 
 var app = express();
 var router = require('./route/router');
+var bodyParser = require('body-parser');
+
+require('./models/db');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 app.use( express.static( "public" ) );
@@ -18,6 +23,7 @@ app.use('/profilePage',router);
 app.use('/signup',router);
 app.use('/tqCard',router);
 app.use('/writeLegacy',router);
+app.use('/createUser',router);
 
 
 

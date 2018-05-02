@@ -5,8 +5,11 @@ var router = express.Router();
 var visits = 0;
 
 
+
 router.get('/', function (req, res) {
 	res.render('landing.ejs');
+	visits += 1;
+	console.log(visits);
 })
 
 router.get('/landing',function (req, res) {
@@ -53,6 +56,13 @@ router.get('/tqCard', function (req, res) {
 router.get('/writeLegacy', function (req, res) {
 	res.render('writeLegacy.ejs');
 })
+
+router.post('/login', userController.createUser);
+
+// router.post('/login', urlencodedParser,function (req, res) {
+// 	console.log(req.body.Username);
+// 	 res.send('POST request to the homepage');
+// })
 
 module.exports = router;
 

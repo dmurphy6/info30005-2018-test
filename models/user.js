@@ -1,20 +1,19 @@
-/ grab the things we need
+//grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var postSchema = new Schema({
-  id : Number, 
-  text : String
+// var postSchema = new Schema({
+//   id : Number, 
+//   text : String
 
 
-});
+// });
 
 // create a schema
 var userSchema = new Schema({
   name: String,
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  posts: [postSchema]
+  password: { type: String, required: true }
 });
 
 // the schema is useless so far
