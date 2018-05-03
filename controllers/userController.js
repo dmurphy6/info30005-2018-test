@@ -37,12 +37,7 @@ module.exports.login = function (req, res) {
 		if(!err){
 			console.log(user);
 			if(user.length > 0){
-				for (var i = 0; i < user.length; i++){
-					if(user[i]['username'].equals(req.body.Username) && user[i]['password'].equals(req.body.Password)){
-						res.render("profilePage.ejs");
-					}//create cases
-				}
-				res.redirect('/login'); //need to figure out how to do alerts
+				res.render("profilePage.ejs");
 			}
 			else{
 				res.redirect('/login'); //need to figure out how to do alerts
