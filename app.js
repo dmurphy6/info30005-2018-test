@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var router = require('./route/router');
 var bodyParser = require('body-parser');
+var session = reqiore('express-session');
 
 require('./models/db');
 app.use(bodyParser.json());
@@ -24,6 +25,7 @@ app.use('/signup',router);
 app.use('/tqCard',router);
 app.use('/writeLegacy',router);
 app.use('/createUser',router);
+app.use(session({secret:"supersecretpassword",resave:false, saveUninitialized:true}));
 
 
 
