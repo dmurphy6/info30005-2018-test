@@ -13,6 +13,7 @@ module.exports.createUser =function (req, res) {
 	var newUser = User({
 		username: req.body.Username,
 		password: req.body.Password
+		
 	});
 
 	// save the user
@@ -49,3 +50,25 @@ module.exports.login = function (req, res) {
 	});
 	
 }
+
+module.exports.inviteSession = function (req, res){
+	if(!req.session.user){
+		return res.status(401).send();
+	}
+
+	return res.status(200).send();
+}
+
+module.exports.writeLegacySession = function (req, res){
+	if(!req.session.user){
+		return res.status(401).send();
+	}
+
+	return res.status(200).send();
+}
+
+	
+
+
+
+	
