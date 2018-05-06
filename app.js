@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var router = require('./route/router');
 var bodyParser = require('body-parser');
-var session = reqiore('express-session');
+var session = require('express-session');
 
 require('./models/db');
 app.use(bodyParser.json());
