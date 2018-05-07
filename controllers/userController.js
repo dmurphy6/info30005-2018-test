@@ -51,21 +51,7 @@ module.exports.login = function (req, res) {
 	
 }
 
-module.exports.inviteSession = function (req, res){
-	if(!req.session.user){
-		return res.status(401).send();
-	}
 
-	return res.status(200).send();
-}
-
-module.exports.writeLegacySession = function (req, res){
-	if(!req.session.user){
-		return res.status(401).send();
-	}
-
-	return res.status(200).send();
-}
 
 	
 
