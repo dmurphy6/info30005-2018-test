@@ -59,8 +59,7 @@ router.get('/writeLegacy', function (req, res) {
 
 router.post('/login', userController.createUser);
 router.post('/profilePage', userController.login);
-router.get('/inviteContributer', userController.inviteSession);
-router.get('/writeLegacy', userController.writeLegacySession);
+
 
 
 
