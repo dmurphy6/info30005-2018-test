@@ -41,9 +41,7 @@ router.get('/login', function (req, res) {
 	res.render('login.ejs');
 })
 
-router.get('/profilePage', function (req, res) {
-	res.render('profile.ejs');
-})
+router.get('/profilePage', userController.getUser);
 
 router.get('/signup', function (req, res) {
 	res.render('signup.ejs');
@@ -57,10 +55,23 @@ router.get('/writeLegacy', function (req, res) {
 	res.render('writeLegacy.ejs');
 })
 
-router.post('/login', userController.createUser);
+router.get('/aboutUser', function (req, res) {
+	res.render('getInfo.ejs');
+})
+
+router.get('/info', function (req, res) {
+	res.render('information.ejs');
+})
+
+router.get('/lastInfo', function (req, res) {
+	res.render('finalInfo.ejs');
+})
+
+router.post('/createUser', userController.createUser);
 router.post('/profilePage', userController.login);
-
-
+router.post("/nextInfo", userController.aboutUser);
+router.post('/final', userController.finalInfo);
+router.post('/alldone', userController.finaladditions);
 
 
 
@@ -68,14 +79,13 @@ router.post('/profilePage', userController.login);
 
 module.exports = router;
 
-// var express = require('express');
-// var users = require('../models/db');
-// var userController = require('../controllers/userController');
-// var router = express.Router();
-// var visits = 0;
-
-
-// router.get('/', userController.loadIndex)
-
+// router.get('/profilePage', function (req, res) {
+// 	if (!req.user) {
+//     res.redirect('/login');
+//   } else {
+  	
+//     res.render('profile.ejs');
+//   }
+// })
 
 // module.exports = router;

@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Register</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="../public/assets/css/signup.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="../public/assets/images/candle-light-flame-memorial-512-122x122.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>More information</title>
+    <link href="/assets/css/signup.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/assets/images/candle-light-flame-memorial-512-122x122.png" type="image/x-icon">
     <meta name="description" content="Invite Contributers">
-    <link rel="stylesheet" href="../public/assets/web/assets/mobirise-icons/mobirise-icons.css">
-    <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="../public/assets/dropdown/css/style.css">
-    <link rel="stylesheet" href="../public/assets/theme/css/style.css">
-    <link rel="stylesheet" href="../public/assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link rel="stylesheet" href="/assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="/assets/theme/css/style.css">
+    <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
 </head>
 <body>
-<section class="menu cid-qP9qxR5nSu" once="menu" id="menu1-j">
-
-
-
+<section class="menu cid-qP9YsagkPN" once="menu" id="menu1-12">
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="hamburger">
@@ -30,65 +27,80 @@
         </button>
         <div class="menu-logo">
             <div class="navbar-brand">
-                  <span class="navbar-logo">
-                      <a href="landing">
-                           <img src="../public/assets/images/candle-light-flame-memorial-512-122x122.png" title="" style="height: 3.8rem;">
-                      </a>
-                  </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
-                          Always Together</a></span>
+                <span class="navbar-logo">
+                    <a href="landing">
+                         <img src="/assets/images/candle-light-flame-memorial-512-122x122.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="landing">
+                        Always Together</a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="aboutus">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="About Us">
                 <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
                 About Us
             </a></li>
                 <li class="nav-item"><a class="nav-link link text-white display-4" href="blog">Stories</a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="signup">Sign up</a></li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="login">Login</a></div>
+                <li class="nav-item"><a class="nav-link link text-white display-4" href="profilePage">Profile</a></li></ul>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="landing">Logout</a></div>
         </div>
     </nav>
 </section>
 
-
 <div class="form">
-    <form  method="post" action="login">
-        <h1 class="title">Register</h1>
-        <div class="wrapper">
-            <div class="name">
-                <label for="name">Name</label>
-                <div>
-                    <input type="text" name="Name" placeholder="Name" required>
-                </div>
-            </div>
-
-            <div class="age">
-                <label for="age">Age</label>
-                <div class="ageInput">
-                    <input type="number" name="quantity" min="1" max="150" required>
-                </div>
-            </div>
-
-            <div class="birthday">
-                <label for="birthdate">Birthday</label>
-                <div>
-                    <input type="date" name="Birthdate" required>
-                </div>
-            </div>
+    <form  method="post" action="final">
+        <div class="row justify-content-center">
+            <h1>About You</h1>
         </div>
 
-        <div class="wrapper2">
-            <div class="radioButton">
-                <label for="gender">Gender</label>
-                <span><input type="radio" name="gender" value="male"> Male </span>
-                <span><input type="radio" name="gender" value="female"> Female </span>
-                <span><input type="radio" name="gender" value="other"> Other</span>
+        <div class="row">
+            <div class="col-sm-4 labelInformation">
+                <label for="aboutYourself">About Yourself</label>
             </div>
+        </div>
+        <div class="col-sm-10">
+            <textarea name="aboutYourself" placeholder="Say something" required></textarea>
+        </div>
 
-            <div class="registerButton">
-                <input type="submit" value="Next">
+        <div class="row">
+            <div class="col-sm-4 labelInformation">
+                <label for="aboutYourFamily">About Your Family</label>
             </div>
+        </div>
+        <div class="col-sm-10">
+            <textarea name="aboutYourFamily" placeholder="Describe your family" required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 labelInformation">
+                <label for="highestEducation">Highest Education</label>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <input type="text" name="highestEd" >
+        </div>
+
+        <div class="row">
+            <div class="col-sm-5 labelInformation">
+                <label for="achievement">Achievement in Career</label>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <textarea name="achievement" ></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-5 labelInformation">
+                <label for="motto">Motto</label>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <textarea name="motto" ></textarea>
+        </div>
+
+        <div class="registerButton">
+            <input type="submit" value="Next">
         </div>
     </form>
 </div>
@@ -100,7 +112,7 @@
             <div class="col-12 col-md-3">
                 <div class="media-wrap">
                     <a href="landing">
-                        <img src="../public/assets/images/candle-light-flame-memorial-512-192x192.png" alt="Mobirise" title="">
+                        <img src="/assets/images/candle-light-flame-memorial-512-192x192.png" alt="Mobirise" title="">
                     </a>
                 </div>
             </div>
@@ -178,12 +190,10 @@
     </div>
 </section>
 
-
-<script src="../public/assets/web/assets/jquery/jquery.min.js"></script>
-<script src="../public/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="../public/assets/dropdown/js/script.min.js"></script>
-<script src="../public/assets/theme/js/script.js"></script>
-
+<script src="/assets/web/assets/jquery/jquery.min.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/dropdown/js/script.min.js"></script>
+<script src="/assets/theme/js/script.js"></script>
 
 </body>
 </html>

@@ -7,18 +7,30 @@ var session = require('client-sessions');
 
 
 require('./models/db');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.set('view engine', 'ejs');
-app.use( express.static( "public" ) );
 
 app.use(session({
     cookieName: 'session',
-    secret: 'random_string_goes_here',
+    secret: 'dgjdjdfjfjhhytjhd',
     duration: 30 * 60 * 1000,
-    activeDuration: 5 * 60 * 1000,
+    sctiveDuration: 50 * 60 * 1000,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
+
+
+
+//app.use(session({ resave: true ,secret: '123456' , saveUninitialized: true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.set('view engine', 'ejs');
+app.use( express.static( "public" ) );
+
+// app.use(session({
+//     cookieName: 'session',
+//     secret: 'random_string_goes_here',
+//     duration: 30 * 60 * 1000,
+//     activeDuration: 5 * 60 * 1000,
+// }));
+
 
 
 app.use('/', router);
@@ -34,6 +46,12 @@ app.use('/signup',router);
 app.use('/tqCard',router);
 app.use('/writeLegacy',router);
 app.use('/createUser',router);
+app.use('/aboutUser',router);
+app.use('/nextInfo',router);
+app.use('/info',router);
+app.use('/final',router);
+app.use('/lastInfo',router);
+app.use('/alldone',router);
 //haha fix it
 
 

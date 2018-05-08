@@ -13,7 +13,19 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
   name: String,
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  email: { type: String, required: true },
+  name: {type: String},
+  age: {type: Number},
+  birthday:{type: Date},
+  gender: {type: String},
+  about: {type: String},
+  afamily: {type: String},
+  highestEducation: {type: String},
+  achivementInCareer: {type: String},
+  motto: {type: String},
+  lovedOne: {type: String},
+  story: {type:String}
 });
 
 // the schema is useless so far
