@@ -176,7 +176,13 @@ module.exports.getUser = function (req, res) {
       }
       // finishing processing the middleware and run the route
       console.log(user['motto']);
-      res.render('profile.ejs', {aboutMe: user['about'], age: user['age'], motto: user['motto'], birth: user['birthday']});
+      res.render('profile.ejs', {
+      	aboutMe: user['about'], 
+      	age: user['age'], 
+      	motto: user['motto'], 
+      	birth: user['birthday'],
+      	username: user['personname'],
+      	aboutF: user['afamily']});
   });
 }
 else {
@@ -186,6 +192,33 @@ else {
   }
 }
 
+module.exports.addImage = function (req, res) {
+	console.log(req.session.username);
+	if (req.session && req.session.user) {
+	User.findOne({ username: req.session.username }, function(err, user) {
+
+      if (user) {
+      	req.session.user = user;
+		req.session.username = req.session.username;
+      }
+      // finishing processing the middleware and run the route
+      console.log(req.body.urlentered);
+      user.images.push(req.body.urlentered);
+  		
+  
+
+       user.save(function(err) {
+    	if (err) throw err;
+
+    	res.redirect("/imageGallery");
+  		});
+    });
+  } else {
+    //Need to figure out how to do alerts
+		console.log("Failed");
+		res.redirect('/profilePage');
+  }
+}
 
 
 	

@@ -52,6 +52,7 @@ app.use('/info',router);
 app.use('/final',router);
 app.use('/lastInfo',router);
 app.use('/alldone',router);
+app.use('/addImage',router);
 //haha fix it
 
 

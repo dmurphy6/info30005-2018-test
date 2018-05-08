@@ -72,7 +72,7 @@ router.post('/profilePage', userController.login);
 router.post("/nextInfo", userController.aboutUser);
 router.post('/final', userController.finalInfo);
 router.post('/alldone', userController.finaladditions);
-
+router.post('/addImage', userController.addImage);
 
 
 
