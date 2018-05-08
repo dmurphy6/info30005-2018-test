@@ -37,14 +37,13 @@ app.use('/createUser',router);
 //haha fix it
 
 
+var port = process.env.PORT || 3000;
+
+app.listen(port, function() {
+    console.log("App is running on port " + port);
+});
 
 
-const PORT = process.env.PORT|| 3000;
-
-app.listen(PORT, function(){
-	console.log(`Express listening on port ${PORT}`);
-	}
-);
 
 // var express = require('express');
 // var path = require("path");
