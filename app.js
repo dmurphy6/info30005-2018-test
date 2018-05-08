@@ -33,26 +33,26 @@ app.use( express.static( "public" ) );
 
 
 
-app.use('/', router);
-app.use('/landing', router);
-app.use('/aboutus',router);
-app.use('/blog',router);
-app.use('/blogAccessFromLanding',router);
-app.use('/imagegallery',router);
-app.use('/inviteContributer',router);
-app.use('/login',router);
-app.use('/profilePage',router);
-app.use('/signup',router);
-app.use('/tqCard',router);
-app.use('/writeLegacy',router);
-app.use('/createUser',router);
-app.use('/aboutUser',router);
-app.use('/nextInfo',router);
-app.use('/info',router);
-app.use('/final',router);
-app.use('/lastInfo',router);
-app.use('/alldone',router);
-app.use('/addImage',router);
+app.use('/*', router);
+// app.use('/landing', router);
+// app.use('/aboutus',router);
+// app.use('/blog',router);
+// app.use('/blogAccessFromLanding',router);
+// app.use('/imagegallery',router);
+// app.use('/inviteContributer',router);
+// app.use('/login',router);
+// app.use('/profilePage',router);
+// app.use('/signup',router);
+// app.use('/tqCard',router);
+// app.use('/writeLegacy',router);
+// app.use('/createUser',router);
+// app.use('/aboutUser',router);
+// app.use('/nextInfo',router);
+// app.use('/info',router);
+// app.use('/final',router);
+// app.use('/lastInfo',router);
+// app.use('/alldone',router);
+// app.use('/addImage',router);
 //haha fix it
 
 

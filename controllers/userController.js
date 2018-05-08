@@ -205,7 +205,7 @@ module.exports.addImage = function (req, res) {
       console.log(req.body.urlentered);
       user.images.push(req.body.urlentered);
   		
-  
+  		
 
        user.save(function(err) {
     	if (err) throw err;
