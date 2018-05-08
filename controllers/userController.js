@@ -38,6 +38,7 @@ module.exports.login = function (req, res) {
 		if(!err){
 			console.log(user);
 			if(user.length > 0){
+				req.session.user = user;
 				res.render("profilePage.ejs");
 			}
 			else{
