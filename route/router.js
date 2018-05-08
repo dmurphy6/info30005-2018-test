@@ -42,7 +42,7 @@ router.get('/login', function (req, res) {
 })
 
 router.get('/profilePage', function (req, res) {
-	res.render('profilePage.ejs');
+	res.render('profile.ejs');
 })
 
 router.get('/signup', function (req, res) {

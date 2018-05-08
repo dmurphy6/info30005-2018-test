@@ -39,7 +39,7 @@ module.exports.login = function (req, res) {
 			console.log(user);
 			if(user.length > 0){
 				req.session.user = user;
-				res.render("profilePage.ejs");
+				res.render("profile.ejs");
 			}
 			else{
 				res.redirect('/login'); //need to figure out how to do alerts
