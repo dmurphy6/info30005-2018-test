@@ -5,3 +5,7 @@
 #Stefan Home, log in and sign up
 #Jeremy Profile, Family Tree, Add legacy
 #Darcy Photo album, Thank you card, contributers
+
+#Create account
+# Upload image from unsplash
+# login

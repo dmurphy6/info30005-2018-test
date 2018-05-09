@@ -62,20 +62,24 @@ module.exports.createUser =function (req, res) {
 module.exports.login = function (req, res) {
 	var query = { username: req.body.Username, password: req.body.Password };
 	User.find(query,function(err,user){
-		if(!err){
-	
-			if(user.length > 0){
-				req.session.user = user;
-				res.render("profile.ejs");
-			}
-			else{
-				console.log("not found");
-				res.redirect('/login'); //need to figure out how to do alerts
-			}
-		}
-		else{
-			res.status(500);
-		}
+	if (user) {
+      	req.session.user = user;
+		req.session.username = req.body.Username;
+		req.session.password = req.body.Password;
+      }
+      // finishing processing the middleware and run the route
+      console.log(user[0]);
+      res.render('profile.ejs', {
+      	aboutMe: user[0]['about'], 
+      	age: user[0]['age'], 
+      	motto: user[0]['motto'], 
+      	birth: user[0]['birthday'],
+      	username: user[0]['personname'],
+      	aboutF: user[0]['afamily'],
+      	degree: user[0]['highestEducation'],
+      	careerAch: user[0]['achivementInCareer'],
+      	lovedOne : user[0]['lovedOne'],
+      	best: user[0]['story']});
 	});
 	
 }
@@ -92,7 +96,7 @@ module.exports.aboutUser = function (req, res) {
         console.log("worked")
       }
       // finishing processing the middleware and run the route
-      user.name = req.body.Name;
+      user.personname = req.body.Name;
       user.age = req.body.age;
       user.birthday = req.body.birth;
       user.gender = req.body.gender;
@@ -175,14 +179,18 @@ module.exports.getUser = function (req, res) {
 		req.session.username = req.session.username;
       }
       // finishing processing the middleware and run the route
-      console.log(user['motto']);
+      console.log(user['personname']);
       res.render('profile.ejs', {
       	aboutMe: user['about'], 
       	age: user['age'], 
       	motto: user['motto'], 
       	birth: user['birthday'],
       	username: user['personname'],
-      	aboutF: user['afamily']});
+      	aboutF: user['afamily'],
+      	degree: user['highestEducation'],
+      	careerAch: user['achivementInCareer'],
+      	lovedOne : user['lovedOne'],
+      	best: user['story']});
   });
 }
 else {
