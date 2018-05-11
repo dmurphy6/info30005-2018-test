@@ -228,5 +228,27 @@ module.exports.addImage = function (req, res) {
   }
 }
 
+module.exports.getImages = function (req, res) {
+  console.log(req.session.username);
+  if (req.session && req.session.user) {
+  User.findOne({ username: req.session.username }, function(err, user) {
+
+      if (user) {
+        req.session.user = user;
+    req.session.username = req.session.username;
+      }
+      // finishing processing the middleware and run the route
+      console.log(user['images']);
+      res.render('imageGallery.ejs', {images: user['images']});
+      
+
+      
+    });
+  } else {
+    //Need to figure out how to do alerts
+    console.log("Failed");
+    res.redirect('/profilePage');
+  }
+}
 
 	
