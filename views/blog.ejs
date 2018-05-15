@@ -65,8 +65,20 @@
 
                 <!-- Main Blog Content -->
                 <div class="large-9 columns" role="content">
+                      <% for(let i = 0; i < users.length; i++) { %>
+                         <article>
+                             <h1><%= users[i].personname %></h1>
+                             <!-- <h1><a href="#"><%= users[i].personname %></a></h1> -->
 
-                    <article>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <p><%= users[i].about %></p>
+                            </div>
+                        </div>
+                        <a href="#" class="button">Read More</a>
+                         </article>
+                     <% } %>
+                <!--     <article>
 
                         <h1><a href="#">Catherine Rondo</a></h1>
                         <p class="article_pub-date">Published
@@ -102,10 +114,8 @@
                         </div>
                         <a href="#" class="button">Read More</a>
                     </article>
-
                 </div>
-            </div>
-        </section>
+            </div>   -->
 
         <section class="cid-qPqIreICzJ" id="footer1-1g">
             <div class="container">

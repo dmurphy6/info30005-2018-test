@@ -21,13 +21,9 @@ router.get('/aboutus', function (req, res) {
 	res.render('aboutus.ejs');
 })
 
-router.get('/blog', function (req, res) {
-	res.render('blog.ejs');
-})
+router.get('/blog', userController.blog);
 
-router.get('/blogAccessFromLanding', function (req, res) {
-	res.render('blogAccessFromLanding.ejs');
-})
+router.get('/blogAccessFromLanding', userController.blog);
 
 router.get('/imagegallery', userController.getImages);
 

@@ -235,7 +235,7 @@ module.exports.getImages = function (req, res) {
 
       if (user) {
         req.session.user = user;
-    req.session.username = req.session.username;
+      req.session.username = req.session.username;
       }
       // finishing processing the middleware and run the route
       console.log(user['images']);
@@ -249,6 +249,20 @@ module.exports.getImages = function (req, res) {
     console.log("Failed");
     res.redirect('/profilePage');
   }
+}
+
+module.exports.blog = function (req, res) {
+  if(req.session && req.session.user){
+    req.session.user = req.session.user;
+    req.session.username = req.session.username;
+  }
+  User.find({}, function(err, users) {
+    if (err) throw err;
+
+    // object of all the users
+    console.log(users);
+    res.render("blog.ejs", {users: users});
+  });
 }
 
 	
