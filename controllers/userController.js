@@ -14,7 +14,8 @@ module.exports.createUser =function (req, res) {
 	User.find(query,function(err,user){
 		if(!err){
 			if(user.length > 0){
-				res.render("login.ejs"); //alert user that account exists
+				res.render("login.ejs", { message: "User Exists. Please Login in" });
+         //alert user that account exists
 			}
 			else{
 				if(req.body.Password === req.body.confirmPassword){
@@ -65,6 +66,21 @@ module.exports.getOtherUser = function (req, res) {
 	if (user) {
       }
       // finishing processing the middleware and run the route
+      if (req.session.user.manages.indexOf(user[0]['username']) >= 0){
+        res.render('profile.ejs', {
+        aboutMe: user[0]['about'], 
+        age: user[0]['age'], 
+        motto: user[0]['motto'], 
+        birth: user[0]['birthday'],
+        username: user[0]['personname'],
+        aboutF: user[0]['afamily'],
+        degree: user[0]['highestEducation'],
+        careerAch: user[0]['achivementInCareer'],
+        lovedOne : user[0]['lovedOne'],
+        best: user[0]['story'],
+        rusername: user[0]['username']});
+      }
+      else{
       console.log(user[0]);
       res.render('guestprofile.ejs', {
       	aboutMe: user[0]['about'], 
@@ -78,6 +94,7 @@ module.exports.getOtherUser = function (req, res) {
       	lovedOne : user[0]['lovedOne'],
       	best: user[0]['story'],
         rusername: user[0]['username']});
+    }
 	});
 	
 }
@@ -279,4 +296,25 @@ module.exports.blog = function (req, res) {
   });
 }
 
-	
+module.exports.addcontributer = function (req, res) {
+  console.log(req.body.email[1]);
+  var query = { email: req.body.email[1]};
+  User.find(query,function(err,user){
+  if (user) {
+      }
+      // finishing processing the middleware and run the route
+      if (user.length > 0){
+        console.log(req.session.user.username);
+        user[0].manages.push(req.session.user.username);
+        user[0].save(function(err) {
+          if (err) throw err;
+
+          res.redirect("/profilePage");
+        });
+      }
+      else{
+        res.redirect("/inviteContributer");
+      } 
+  });
+
+}

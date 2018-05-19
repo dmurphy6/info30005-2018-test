@@ -12,8 +12,8 @@ var Schema = mongoose.Schema;
 // create a schema
 var userSchema = new Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  email: { type: String, required: true },
+  password: { type: String, required: true},
+  email: { type: String, required: true, unique: true  },
   personname: {type: String},
   age: {type: Number},
   birthday:{type: Date},
@@ -25,7 +25,8 @@ var userSchema = new Schema({
   motto: {type: String},
   lovedOne: {type: String},
   story: {type:String},
-  images: Array
+  images: Array,
+  manages: Array
 });
 
 userSchema.methods.validPassword = function( pwd ) {

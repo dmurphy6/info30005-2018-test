@@ -53,6 +53,7 @@ app.use('/final',router);
 app.use('/lastInfo',router);
 app.use('/alldone',router);
 app.use('/addImage',router);
+app.use('/addcontributer',router);
 
 var port = process.env.PORT || 3000;
 

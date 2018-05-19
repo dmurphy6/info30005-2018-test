@@ -114,5 +114,5 @@ router.post('/final', userController.finalInfo);
 router.post('/alldone', userController.finaladditions);
 router.post('/addImage', userController.addImage);
 router.post('/user/:user', userController.getOtherUser);
-
+router.post('/addcontributer', userController.addcontributer);
 module.exports = router;
