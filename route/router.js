@@ -6,17 +6,19 @@ var visits = 0;
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-passport.use('local',new LocalStrategy(
-  function(username, password, done) {
+passport.use('local',new LocalStrategy({
+    passReqToCallback : true
+  },
+  function(req,username, password, done) {
     User.findOne({ username: username }, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
       	console.log('bad username');
-        return done(null, false);
+        return done(null, false, req.flash('message', 'User Not found.'));
       }
       if (!user.validPassword(password)) {
       	console.log('bad pas');
-        return done(null, false);
+        return done(null, false, req.flash('message', 'Invalid Password'));
       }
       return done(null, user);
     });
@@ -68,16 +70,13 @@ router.get('/inviteContributer', function (req, res) {
 })
 
 router.get('/login', function (req, res) {
-	res.render('login.ejs');
+	res.render('login.ejs', { message: req.flash('message') });
 })
 
 router.get('/profilePage', userController.getUser);
 
-// router.get('/profilePage',function (req, res) {
-// 	console.log(req.user.username);
-// 	res.render('landing.ejs');
-
-// })
+router.get('/user/:user',userController.getOtherUser);
+router.get('/imagegallery/:user',userController.getOtherUserImages);
 
 router.get('/signup', function (req, res) {
 	res.render('signup.ejs');
@@ -106,27 +105,14 @@ router.get('/lastInfo', function (req, res) {
 router.post('/createUser', userController.createUser);
 router.post('/profilePage', 
 	passport.authenticate('local', { successRedirect: '/profilePage',
-                                   failureRedirect: '/login',
-                                   failureMessage: 'Invalid username or password.'  ,
+                                  	failureRedirect : '/login',
+    							   failureFlash: true ,
                                    session: true }));
 
 router.post("/nextInfo", userController.aboutUser);
 router.post('/final', userController.finalInfo);
 router.post('/alldone', userController.finaladditions);
 router.post('/addImage', userController.addImage);
-
-
-
+router.post('/user/:user', userController.getOtherUser);
 
 module.exports = router;
-
-// router.get('/profilePage', function (req, res) {
-// 	if (!req.user) {
-//     res.redirect('/login');
-//   } else {
-  	
-//     res.render('profile.ejs');
-//   }
-// })
-
-// module.exports = router;

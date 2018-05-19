@@ -59,17 +59,14 @@ module.exports.createUser =function (req, res) {
 	});
 }
 
-module.exports.login = function (req, res) {
-	var query = { username: req.body.Username, password: req.body.Password };
+module.exports.getOtherUser = function (req, res) {
+	var query = { username: req.params.user};
 	User.find(query,function(err,user){
 	if (user) {
-      	req.session.user = user;
-		req.session.username = req.body.Username;
-		req.session.password = req.body.Password;
       }
       // finishing processing the middleware and run the route
       console.log(user[0]);
-      res.render('profile.ejs', {
+      res.render('guestprofile.ejs', {
       	aboutMe: user[0]['about'], 
       	age: user[0]['age'], 
       	motto: user[0]['motto'], 
@@ -79,7 +76,8 @@ module.exports.login = function (req, res) {
       	degree: user[0]['highestEducation'],
       	careerAch: user[0]['achivementInCareer'],
       	lovedOne : user[0]['lovedOne'],
-      	best: user[0]['story']});
+      	best: user[0]['story'],
+        rusername: user[0]['username']});
 	});
 	
 }
@@ -251,6 +249,23 @@ module.exports.getImages = function (req, res) {
   }
 }
 
+
+module.exports.getOtherUserImages = function (req, res) {
+  console.log(req.params.user);
+  var query = { username: req.params.user};
+  User.find(query,function(err,user){
+  if (user) {
+      }
+      // finishing processing the middleware and run the route
+      console.log(user[0]['images']);
+      res.render('imageGallery.ejs', {images: user[0]['images']});
+  });
+  
+}
+
+
+
+
 module.exports.blog = function (req, res) {
   if(req.session && req.session.user){
     req.session.user = req.session.user;
@@ -260,7 +275,6 @@ module.exports.blog = function (req, res) {
     if (err) throw err;
 
     // object of all the users
-    console.log(users);
     res.render("blog.ejs", {users: users});
   });
 }

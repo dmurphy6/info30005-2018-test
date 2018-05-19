@@ -8,7 +8,8 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 require('./models/db');
-
+var cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 
 
@@ -22,11 +23,12 @@ app.use(express.static( "public" ));
 app.use(session({
     secret: 'abcdefg',
     resave: true,
-    saveUninitialized: false
+    saveUninitialized: true
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+
 
 
 
@@ -39,6 +41,7 @@ app.use('/imagegallery',router);
 app.use('/inviteContributer',router);
 app.use('/login',router);
 app.use('/profilePage',router);
+app.use('/user/:user',router);
 app.use('/signup',router);
 app.use('/tqCard',router);
 app.use('/writeLegacy',router);
