@@ -171,8 +171,8 @@ module.exports.finaladditions = function (req, res) {
 }
 
 module.exports.getUser = function (req, res) {
-	if (req.session && req.session.user) {
-	User.findOne({ username: req.session.username }, function(err, user) {
+	if (req.user) {
+	User.findOne({ username: req.user.username }, function(err, user) {
 
       if (user) {
       	req.session.user = user;

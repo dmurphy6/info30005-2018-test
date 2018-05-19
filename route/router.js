@@ -1,9 +1,43 @@
 var express = require('express');
-// var users = require('../models/db');
+var User = require('../models/user');
 var userController = require('../controllers/userController');
 var router = express.Router();
 var visits = 0;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
+passport.use('local',new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+      	console.log('bad username');
+        return done(null, false);
+      }
+      if (!user.validPassword(password)) {
+      	console.log('bad pas');
+        return done(null, false);
+      }
+      return done(null, user);
+    });
+  }
+));
+
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  // console.log(`id: ${id}`);
+  User.findById(id)
+    .then((user) => {
+      done(null, user);
+    })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
+    });
+});
 
 
 router.get('/', function (req, res) {
@@ -13,6 +47,7 @@ router.get('/', function (req, res) {
 })
 
 router.get('/landing',function (req, res) {
+	req.logout();
 	res.render('landing');
 })
 
@@ -37,6 +72,12 @@ router.get('/login', function (req, res) {
 })
 
 router.get('/profilePage', userController.getUser);
+
+// router.get('/profilePage',function (req, res) {
+// 	console.log(req.user.username);
+// 	res.render('landing.ejs');
+
+// })
 
 router.get('/signup', function (req, res) {
 	res.render('signup.ejs');
@@ -63,7 +104,12 @@ router.get('/lastInfo', function (req, res) {
 })
 
 router.post('/createUser', userController.createUser);
-router.post('/profilePage', userController.login);
+router.post('/profilePage', 
+	passport.authenticate('local', { successRedirect: '/profilePage',
+                                   failureRedirect: '/login',
+                                   failureMessage: 'Invalid username or password.'  ,
+                                   session: true }));
+
 router.post("/nextInfo", userController.aboutUser);
 router.post('/final', userController.finalInfo);
 router.post('/alldone', userController.finaladditions);

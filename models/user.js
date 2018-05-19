@@ -28,6 +28,11 @@ var userSchema = new Schema({
   images: Array
 });
 
+userSchema.methods.validPassword = function( pwd ) {
+    // EXAMPLE CODE!
+    return ( this.password === pwd );
+};
+
 // the schema is useless so far
 // we need to create a model using it
 var User = mongoose.model('User', userSchema);
