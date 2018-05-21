@@ -1,177 +1,57 @@
-body{
-  margin-top:30px;
-
+.bg{
+    background-image: url('../images/legacy.jpeg'), linear-gradient(rgba(27,17,11,1), rgba(114, 70, 48, .3));
+    background-position : center;
+    background-size:cover;
 }
 
-.wrapper{
-    display:grid;
-    grid-template-columns: 3fr 5fr 5fr 2fr;
-    grid-template-rows: 3fr 5fr 5fr;
+#legacyText{
+    border-radius:4px;
+    padding: 1%;
 }
 
-.wrapper2{
-    display:grid;
-    grid-template-columns: 4fr 4fr 4fr 1fr;
-    grid-template-rows: 1fr 1fr;
+h2{
+    margin-top:2%;
+    padding-bottom:2%;
 }
 
-.wrapper3{
-    display:grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 1fr auto;
-}
-
-.profile {
-  width: 100%;
-  position: relative;
-  background: #FFF;
-  border: 1px solid #D5D5D5;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-
-}
-
-.profile .image {
-  display: block;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  text-align: center;
-  border: 5px solid #FFF;
-}
-
-.profile .user {
-  position: relative;
-  padding: 0px 5px 5px;
-}
-
-.profile .user .avatar {
-  position: absolute;
-  left: 20px;
-  top: -150px;
-  z-index: 2;
-}
-
-.profile .user h2 {
-  font-size: 16px;
-  line-height: 20px;
-  display: block;
-  float: left;
-  margin: 4px 0px 0px 135px;
-  font-weight: bold;
-}
-
-.info {
-  grid-column: 2/3;
-  grid-row:2/3;
-  font-size:1.5em;
-  padding-left:35%;
-  
-}
-
-.photoAlbum {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    text-align: center;
-
-}
-
-.photoAlbum > img {
-    width: 75px;
-    height: 75px;
-}
-
-.tqCard{
-  grid-column:3/4;
-  grid-row:1/2;
-  text-align:center;
-}
-
-.tqCard img{
-   filter: grayscale(100%);
-    width: 75px;
-    height: 75px;
-}
-
-.inviteContributer{
-    grid-column:2/3;
-    grid-row:1/2;
-    text-align:center;
-}
-
-.inviteContributer img{
-    width: 75px;
-    height: 75px;
-}
-
-
-.img-profile{
-    height:200px;
-    width:200px;
-}
-
-.img-cover{
-    width:1000px;
-    height:300px;
-}
-
-.name{
-    grid-column:1/2;
-    grid-row:1/2;
-    text-align: left;
-    padding-left:15%;
-}
-
-.anchor{
-  font-size:1.5em;
-  color: black;
-}
-
-.lHeader{
-    margin-top:10% ;
-    grid-row:1/2;
-    grid-column:2/3;
-    text-align: center;
-
-}
-
-.lText{
-    grid-row:2/3;
-    grid-column:2/3;
-    text-align: center;
-}
-.lQuestion{
-    grid-row:2/3;
-    grid-column:2/3;
-    text-align: left;
-}
-
-#legacyText {
-    width: 80%;
-    height: 70%;
-    font-size: 1.5em;
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
     border-radius: 4px;
-    resize: none;
-    overflow: auto;
+    cursor: pointer;
 }
 
-.saveBtn{
-  text-align: right;
+input[type=checkbox].css-checkbox {
+    position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
 }
 
-@media (max-width: 768px) {
-  .btn-responsive {
-    padding:2px 4px;
-    font-size:80%;
-    line-height: 1;
-    border-radius:3px;
-  }
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left:29px;
+    height:24px;
+    display:inline-block;
+    line-height:24px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:24px;
+    vertical-align:middle;
+    cursor:pointer;
+
 }
 
-@media (min-width: 769px) and (max-width: 992px) {
-  .btn-responsive {
-    padding:4px 9px;
-    font-size:90%;
-    line-height: 1.2;
-  }
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -24px;
+}
+label.css-label {
+    background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_4f6bc9a7cc47504b9c36e04aa489f19e.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top:5%;
 }
