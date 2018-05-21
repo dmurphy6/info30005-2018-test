@@ -9,4 +9,3 @@ MongoClient.connect(url, function(err, db) {
   	console.log("Database NOT connected");
   }
 });
-
