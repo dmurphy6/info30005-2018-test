@@ -7,19 +7,18 @@
   <meta name="generator" content="Mobirise v4.7.1, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="/assets/images/candle-light-flame-memorial-512-122x122.png" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="/assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="/assets/dropdown/css/style.css">
   <link rel="stylesheet" href="/assets/theme/css/style.css">
+    <link rel="stylesheet" href="/assets/css/writestyle.css">
   <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
     <script src="/assets/web/assets/jquery/jquery.min.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/dropdown/js/script.min.js"></script>
     <script src="/assets/theme/js/script.js"></script>
-    <link href="/assets/css/writestyle.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -41,7 +40,7 @@
                            <img src="/assets/images/candle-light-flame-memorial-512-122x122.png" title="" style="height: 3.8rem;">
                       </a>
                   </span>
-                  <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="landing">
+                  <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="profile">
                           Always Together</a></span>
               </div>
           </div>
@@ -56,46 +55,37 @@
           </div>
       </nav>
     </section>
-    <br style="clear: both;">
-    <div class="wrapper3">
-        <div class="lHeader">
-            <h2>My Legacy</h2>
+    <section class="cid-qPafFbvjUg  bg">
+        <div class="container-fluid bg">
+            <!-- show any messages that come back -->
+            <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+
+            <div class="row justify-content-center">
+                <div class="col-md-3 header col-sm-3">
+                     <h2>Write Your Legacy</h2>
+                </div>
+            </div>
+            <form method="post" action="/saveLegacy">
+                <div class="row justify-content-center">
+                    <textarea id="legacyText" name="legacyText" rows="15" cols="100"><%=legacy%></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 offset-md-8">
+                        <input type="checkbox" name="allowcheckbox" id="checkboxG1" value="True" class="css-checkbox" />
+                        <label for="checkboxG1" class="css-label">Make it Public</label>
+                        <input type="hidden" name="profileID" value="<%=profileID%>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 offset-md-8">
+                        <input type="submit" value="Save">
+                    </div>
+                </div>
+            </form>
         </div>
-               	       
-        <div  class= 'lQuestion'>
-            <form>
-  				Date of Birth:<br>
-  				<input type="date" name="bday"><br>
-  				
-  				What school/s did you attend?<br>
-  				<input type="text" name="school"><br><br>
-  				<input type="text" name="school"><br><br>
-  				<input type="text" name="school"><br><br>
-  				What were your greatest achievments in life?<br>
-  				<input type="text" name="achievements"><br><br>
-  				<input type="text" name="achievements"><br><br>
-  				<input type="text" name="achievements"><br><br>
-  				<input type="text" name="achievements"><br><br>
-  				<input type="text" name="achievements"><br><br>
-  				<input type="text" name="achievements"><br><br>
-  				<input type="text" name="achievements"><br><br>
-  				<input type="text" name="achievements"><br><br>
-  				
-
-  				<br>
-
-  				
-			</form>
-            <textarea id="legacyText" rows="25" cols="100"></textarea>
-        </div>
-    </div>
-    <form action="profilePage">
-    <div>
-        <button class="btn btn-default float-right" type="submit">Save</button>
-    </div>
-  </form>
-    <br style="clear: both;">
-
+    </section>
 
     <section class="cid-qPqIreICzJ" id="footer1-1g">
         <div class="container">
