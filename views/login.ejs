@@ -41,7 +41,7 @@
               </div>
           </div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="aboutus">
+              <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="aboutusAccessFromLanding">
                           <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
                           About Us
                       </a></li>
@@ -52,27 +52,42 @@
       </nav>
   </section>
 
-
-
 <div class="form">
- <form method="post" action="profilePage">
+    <!-- show any messages that come back with authentication -->
+    <% if (message.length > 0) { %>
+    <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+    <form method="post" action="login">
   <h1 class="title">Login</h1>
     
     <label for="username">Username</label>
     <input type="text" name="username" placeholder="Username" required>
 
-    
     <label for="password">Password</label>
     <input type="password" name="password" placeholder="Password"  required>
-    <% if (message) { %>
-        <div class="alert alert-primary" role= "alert"><%=message %></div>
-    <% } %>
-    
+  
     <input type="submit" value="Login">
   </form>
 </div>
 
- 
+
+
+
+<!-- <div class="grid-container-top">
+  <div class="title"><h1>Login</h1></div>
+</div>
+ <div>
+  <form class="grid-container-bottom" action="profilePage">
+  <div class="item1">Username</div>
+  <div class="grid-item"><input type="text" name="Username" class="form-control username" required></div>
+  <div class="item1">Password</div>
+  <div class="grid-item"><input type="text" name="Password" class="form-control password" required></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"><button class="btn btn-outline-success registerbutton" type="submit">Login</button></div>
+</form>
+</div>  -->
 
 <section class="cid-qPqIreICzJ" id="footer1-1g">
 
