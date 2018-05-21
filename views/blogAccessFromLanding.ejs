@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="/assets/images/candle-light-flame-memorial-512-122x122.png" type="image/x-icon">
     <title>Simple Blog</title>
-    <link rel="stylesheet" href="/assets/dropdown/css/blogStyle.css">
+    <link rel="stylesheet" href="/assets/css/blogStyle.css">
     <link rel="stylesheet" href="/assets/web/assets/mobirise-icons/mobirise-icons.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-grid.min.css">
@@ -22,6 +22,33 @@
     <script src="/assets/dropdown/js/script.min.js"></script>
     <script src="/assets/theme/js/script.js"></script>
     <script src="/assets/theme/js/modernizr.js"></script>
+    <script>
+        $(function(){
+            // here the code for text minimiser and maxmiser by faisal khan
+            var minimized_elements = $('p.text-viewer');
+
+            minimized_elements.each(function(){
+                var t = $(this).text();
+                if(t.length < 500) return;
+
+                $(this).html(
+                    t.slice(0,500)+'<span>... </span><a href="#" class="more"> Read More </a>'+
+                    '<span style="display:none;">'+ t.slice(500,t.length)+' <a href="#" class="less"> Read Less </a></span>'
+                );
+            });
+
+            $('a.more', minimized_elements).click(function(event){
+                event.preventDefault();
+                $(this).hide().prev().hide();
+                $(this).next().show();
+            });
+
+            $('a.less', minimized_elements).click(function(event){
+                event.preventDefault();
+                $(this).parent().hide().prev().show().prev().show();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -48,7 +75,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                <a class="nav-link link text-white display-4" href="aboutus">
+                <a class="nav-link link text-white display-4" href="aboutusAccessFromLanding">
                     <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
                     About Us</a></li>
                 <li class="nav-item"><a class="nav-link link text-white display-4" href="blog">Stories</a></li>
@@ -59,51 +86,26 @@
 </section>
 <div class="content-wrapper">
     <section id="main-content">
-
         <!-- Main Page Content and Sidebar -->
 
         <div class="row">
-
             <!-- Main Blog Content -->
             <div class="large-9 columns" role="content">
-
+                <% for(var i = 0; i < memorials.length; i++) {%>
+                <% if(memorials[i].personName && memorials[i].legacy && memorials[i].privacy) {%>
                 <article>
-
-                    <h1><a href="#">Catherine Rondo</a></h1>
-                    <p class="article_pub-date">Published
-                        <time datetime="2014-05-13" pubdate="">May 13, 2014</time>
-                    </p>
+                    <h1><a href="viewProfile"><%=memorials[i].personName%></a></h1>
 
                     <div class="row">
                         <div class="large-12 columns">
-                            <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.</p>
-                            <p>Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-                            <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-                            <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+                            <p class="text-viewer"><%= memorials[i].legacy %> </p>
                         </div>
                     </div>
-                    <a href="#" class="button">Read More</a>
                 </article>
 
                 <hr />
-
-                <article>
-
-                    <h1><a href="#">Sir John Medley</a></h1>
-                    <p class="article_pub-date">Published
-                        <time datetime="2014-05-13" pubdate="">May 13, 2014</time>
-                    </p>
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.</p>
-                            <p>Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-                            <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-                            <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-                        </div>
-                    </div>
-                    <a href="#" class="button">Read More</a>
-                </article>
-
+                <% } %>
+                <% } %>
             </div>
         </div>
     </section>
