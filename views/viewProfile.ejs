@@ -33,17 +33,17 @@
                          <img src="/assets/images/candle-light-flame-memorial-512-122x122.png" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="landing">
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="createMemorial">
                         Always Together</a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="About Us">
-                        <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                        About Us
-                    </a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="blog">Stories</a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="profilePage">Profile</a></li></ul>
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="aboutus">
+                <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                About Us
+            </a></li>
+                <li class="nav-item"><a class="nav-link link text-white display-4" href="/blog?id=<%= profileID%>">Stories</a></li>
+                <li class="nav-item"><a class="nav-link link text-white display-4" href="/profile?id=<%= profileID %>">Profile</a></li></ul>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="landing">Logout</a></div>
         </div>
     </nav>
@@ -55,7 +55,7 @@
             <img align="left" class="fb-image-lg" src="/assets/images/1.jpg" alt="Profile image example"/>
             <img align="left" class="fb-image-profile thumbnail" src="https://bootdey.com/img/Content/user-453533-fdadfd.png" alt="Profile image example"/>
             <div class="fb-profile-text">
-                <h1>Eli Macy</h1>
+                <h1><%=memorial.personName%></h1>
 
             </div>
         </div>
@@ -76,23 +76,17 @@
                     </li>
                     <li>
                         <a href="#tab_default_3" data-toggle="tab">
-                            Family Details</a>
+                            Beloved One</a>
                     </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_default_1">
                         <p>
-                            My daughter  is good looking, with pleasant personality, smart, well educated, from well cultural and  a religious family background. having respect in heart for others.
-                            would like to thanks you for visiting through my daughter;s profile.
-                            She has done PG in Human Resources after her graduation.
-                            At present working IN INSURANCE sector as Manager Training .
+                            <%=memorial.about%>
                         </p>
                         <h4>About Your Family</h4>
                         <p>
-                            About her family she belongs to a religious and a well cultural family background.
-                            Father - Retired from a Co-operate Bank as a Manager.
-                            Mother - she is a home maker.
-                            1 younger brother - works for Life Insurance n manages cluster.
+                            <%=memorial.aboutFamily%>
                         </p>
                     </div>
                     <div class="tab-pane" id="tab_default_2">
@@ -100,14 +94,14 @@
                             <div class="col-sm-10">
                                 <div class="form-group">
                                     <label>Highest Education:</label>
-                                    Bachelor of Computing
+                                    <p><%=memorial.highestEducation%></p>
                                 </div>
                             </div>
 
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Achievement in Career:</label>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    <p><%=memorial.achievementInCareer%></p>
                                 </div>
                             </div>
                         </div>
@@ -117,12 +111,12 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Name:</label>
-                                    John Medley
+                                    <%=memorial.lovedOne%>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Best moment:</label>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    <label>Best moment(s) with him/her:</label>
+                                    <p><%=memorial.story%></p>
                                 </div>
                             </div>
                         </div>
@@ -141,15 +135,26 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label >Age:</label> 25
+                            <label >Age:</label> <%=memorial.age%>
                         </div>
                         <div class="form-group">
-                            <label >Date of Birth:</label> 26 Sep 2017
+                            <label >Gender:</label> <%=memorial.gender%>
                         </div>
                         <div class="form-group">
-                            <label >Life Motto:</label> Work hard, play hard!
+                            <label >Date of Birth:</label> <%=memorial.birthday%>
+                        </div>
+                        <div class="form-group">
+                            <label >Life Motto:</label> <%=memorial.motto%>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class= 'photoAlbum col-sm-4'>
+                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-128.png">
+                <div>
+                    <a class= 'imagegallery' href="imagegallery">Photo Album</a>
                 </div>
             </div>
         </div>
