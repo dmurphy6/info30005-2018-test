@@ -1,4 +1,4 @@
-var models = require('../models/user');
+    var models = require('../models/user');
 var ObjectId = require('mongodb').ObjectID;
 
 //post req
