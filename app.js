@@ -29,7 +29,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 app.set('view engine', 'ejs');
 app.use( express.static( "public" ) );
-app.use(router);
+app.use('/',router);
 
 
 // routes ======================================================================
