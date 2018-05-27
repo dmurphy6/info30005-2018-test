@@ -253,7 +253,7 @@ module.exports.getImages = function (req, res) {
       req.session.username = req.session.username;
       }
       // finishing processing the middleware and run the route
-      console.log(user['images']);
+      console.log("DFS");
       res.render('imageGallery.ejs', {images: user['images']});
       
 

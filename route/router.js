@@ -42,9 +42,7 @@ module.exports = function (router, passport) {
 
     router.get('/changePassword', userController.getChangePassword);
 
-    router.get('/imagegallery', function (req, res) {
-        res.render('imagegallery.ejs');
-    });
+    router.get('/imagegallery', userController.getImages);
 
     router.get('/inviteContributer', function (req, res) {
         res.render('inviteContributer.ejs');
