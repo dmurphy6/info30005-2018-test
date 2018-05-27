@@ -598,3 +598,28 @@ module.exports.getCreateMemorial = function (req, res) {
         res.redirect('landing');
     }
 };
+
+module.exports.addcontributer = function (req, res) {
+  console.log(req.body.email[1]);
+  var query = { email: req.body.email[1]};
+  models.User.find(query,function(err,user){
+  if (user) {
+      }
+      // finishing processing the middleware and run the route
+      if (user.length > 0){
+        console.log(req.user);
+        console.log(user);
+        user[0].contributedMemorial.push(req.user.yourMemorial);
+
+        user[0].save(function(err) {
+          if (err) throw err;
+
+          res.redirect("/profilePage");
+        });
+      }
+      else{
+        res.redirect("/inviteContributer");
+      } 
+  });
+
+}

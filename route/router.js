@@ -106,6 +106,8 @@ module.exports = function (router, passport) {
 
     router.post('/saveLegacy', userController.saveLegacy);
 
+    router.post('/addcontributer', userController.addcontributer);
+
     router.post('/upload', upload.single('upl'), function (req, res, next) {
         // req.file is the `avatar` file
         // req.body will hold the text fields, if there were any
